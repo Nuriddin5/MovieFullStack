@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import {landingPageDTO} from "./movies/movies.model";
 import MoviesList from "./movies/MoviesList";
+import Menu from "./movies/Menu";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import IndexGenres from './genres/IndexGenres';
 
 function App() {
 
@@ -44,13 +47,31 @@ function App() {
 
 
     return (
-        <div className={'container'}>
-            <h3>In Theatre</h3>
-            <MoviesList movies={movies.inTheaters}/>
-            <h3>Upcoming Releases</h3>
-            <MoviesList movies={movies.upcomingReleases}/>
-        </div>
-    );
+        <>
+            <BrowserRouter>
+
+                <Menu/>
+                <div className={'container'}>
+                    <Routes>
+                        <Route path={'/'} element={
+                           <>
+                               <h3>In Theatre</h3>
+                               <MoviesList movies={movies.inTheaters}/>
+                               <h3>Upcoming Releases</h3>
+                               <MoviesList movies={movies.upcomingReleases}/>
+                           </>
+                        }/>
+
+
+                        <Route path={'/genres'} element={<IndexGenres/>}/>
+                    </Routes>
+                </div>
+            </BrowserRouter>
+
+
+        </>
+    )
+        ;
 }
 
 
