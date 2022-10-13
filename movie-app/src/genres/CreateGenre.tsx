@@ -1,18 +1,39 @@
 import Button from "../utils/Button";
-import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import * as Yup from 'yup';
+import TextField from "../forms/TextField";
 
 export default function CreateGenre() {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     return (
         <><h3>Create genre</h3>
 
-            <Button onClick={()=>{
-                //saving in db
-                navigate('/genres')
-            }} class={'btn btn-primary'}>Save changes</Button>
+            <Formik initialValues={{
+                name: ''
+            }} onSubmit={values =>
+                console.log(values)
+            }
+                    validationSchema={
+                        Yup.object({
+                            name: Yup.string().required('This field is required')
+                        })
+                    }
+            >
 
-            </>
-            )
-          }
+
+                <Form>
+                    <TextField field={'name'} displayName={'Name'}/>
+                    
+                    <Button type={"submit"} class={'btn btn-primary'}>Save changes</Button>
+                    <Link to={'genres'} className={'btn btn-secondary'}>Cancel</Link>
+
+                </Form>
+
+            </Formik>
+
+        </>
+    )
+}
