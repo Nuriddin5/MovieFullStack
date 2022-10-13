@@ -15,6 +15,7 @@ import IndexMovieTheater from "./movietheaters/IndexMovieTheaters";
 import CreateMovie from "./movies/CreateMovie";
 import EditMovie from "./movies/EditMovie";
 import FilterMovies from "./movies/FilterMovies";
+import NotFoundPage from "./NotFoundPage";
 
 function App() {
 
@@ -30,19 +31,32 @@ function App() {
 
                         <Route path={'/genres'} element={<IndexGenres/>}/>
                         <Route path={'/genres/create'} element={<CreateGenre/>}/>
-                        <Route path={'/genres/edit'} element={<EditGenre/>}/>
+                        <Route path={'/genres/edit'}>
+                            <Route path=":id" element={<EditGenre/>}/>
+                        </Route>
+
 
                         <Route path={'/actors'} element={<IndexActors/>}/>
                         <Route path={'/actors/create'} element={<CreateActor/>}/>
-                        <Route path={'/actors/edit'} element={<EditActor/>}/>
+                        <Route path={'/actors/edit'}>
+                            <Route path=":id" element={<EditActor/>}/>
+                        </Route>
 
                         <Route path={'/movieTheaters'} element={<IndexMovieTheater/>}/>
                         <Route path={'/movieTheaters/create'} element={<CreateMovieTheater/>}/>
-                        <Route path={'/movieTheaters/edit'} element={<EditMovieTheater/>}/>
+                        <Route path={'/movieTheaters/edit'}>
+                            <Route path=":id" element={<EditMovieTheater/>}/>
+                        </Route>
+
 
                         <Route path={'/movies/create'} element={<CreateMovie/>}/>
                         <Route path={'/movies/filter'} element={<FilterMovies/>}/>
-                        <Route path={'/movies/edit'} element={<EditMovie/>}/>
+                        <Route path={'/movies/edit'}>
+                            <Route path=":id" element={<EditMovie/>}/>
+                        </Route>
+
+                        <Route path="*" element={<NotFoundPage/>}/>
+
                     </Routes>
                 </div>
             </BrowserRouter>
