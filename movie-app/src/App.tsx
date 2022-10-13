@@ -16,10 +16,11 @@ import CreateMovie from "./movies/CreateMovie";
 import EditMovie from "./movies/EditMovie";
 import FilterMovies from "./movies/FilterMovies";
 import NotFoundPage from "./NotFoundPage";
+import configureValidations from "./Validations";
 
 function App() {
 
-
+configureValidations()
     return (
         <>
             <BrowserRouter>
