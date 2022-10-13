@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Menu from "./movies/Menu";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import IndexGenres from './genres/IndexGenres';
 import LandingPage from "./movies/LandingPage";
@@ -17,10 +16,11 @@ import EditMovie from "./movies/EditMovie";
 import FilterMovies from "./movies/FilterMovies";
 import NotFoundPage from "./NotFoundPage";
 import configureValidations from "./Validations";
+import Menu from "./Menu";
 
 function App() {
 
-configureValidations()
+    configureValidations()
     return (
         <>
             <BrowserRouter>
@@ -60,6 +60,12 @@ configureValidations()
 
                     </Routes>
                 </div>
+
+                <footer className="bd-footer py-5 mt-5 bg-light">
+                    <div className="container">
+                        React Movies {new Date().getFullYear().toString()}
+                    </div>
+                </footer>
             </BrowserRouter>
 
 

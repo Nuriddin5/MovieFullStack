@@ -1,27 +1,23 @@
-import React from "react";
-
-export default function Button(props: buttonProps) {
-    return <button
-        type={props.type}
-        onClick={props.onClick}
-        className={props.class}
-        disabled={props.disabled}
+export default function Button(props: buttonProps){
+      
+    return <button 
+    type={props.type} 
+    disabled={props.disabled}
+    className={props.className}
+    onClick={props.onClick}
     >{props.children}</button>
+}
 
-};
-
-interface buttonProps {
-    children: React.ReactNode
-    class: string;
-
-    onClick?(): void;
-
-    type: 'button' | 'submit';
-
-    disabled?: boolean;
+interface buttonProps{
+  children: React.ReactNode;
+  onClick?(): void;
+  type: "button" | "submit";
+  disabled: boolean;
+  className: string;
 }
 
 Button.defaultProps = {
-    type: 'button',
-    disabled: false
+  type: "button",
+  disabled: false,
+  className: "btn btn-primary"
 }

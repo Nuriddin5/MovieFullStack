@@ -1,8 +1,10 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function IndexMovieTheater() {
-    return <>
-        <h3>Movie theater</h3>
-        <Link className={'btn btn-primary'} to={'/movieTheaters/create'}>Create movie theater</Link>
-    </>
-};
+export default function IndexMovieTheaters(){
+    return (
+        <>
+            <h3>Movie Theaters</h3>
+            <Link className="btn btn-primary" to="/movietheaters/create">Create movie theater</Link>
+        </>
+    )
+}
